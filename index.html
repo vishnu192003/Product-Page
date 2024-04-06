@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Card with Quantity Increment/Decrement</title>
+  <style>
+    .product-card {
+      display: flex;
+      padding: 20px;
+      width: 70%;
+      margin: 20px;
+      border-radius: 10px;
+      border: 2px solid #000000;
+      padding-top: 2rem;
+    }
+    .quantity {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .quantity input {
+      width: 50px;
+      text-align: center;
+      margin: 0 10px;
+    }
+    .price {
+      font-weight: bold;
+    }
+    .input{
+        width: 100px;
+        height: 40px;
+        border-radius: 10px;
+        border: 2px solid #000000;
+        margin: 0;
+        margin-bottom: 1rem;
+        padding-left: 5%;
+    }
+    .input2{    
+    
+        margin-left: 8rem;
+        border-radius: 5px;
+        border: 1px solid #000000;
+        padding:  10px ;
+      }
+      .input3{ 
+        border-radius: 5px;
+        border: 1px solid #000000;
+        padding:  10px ;
+      }
+    .image{
+       
+        border-radius: 10px;
+        border: 2px solid #000000;
+        
+    }
+    .info{
+       padding: 10px;
+       margin-left: 6%;
+
+      
+    }
+    .addtocart{
+        width: 70%;
+        margin-left: 6%;
+        margin-top: 10px;
+        border-radius: 10px;
+        border: 2px solid #000000;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    .third{
+        margin-left: 1.5%;
+       
+    }
+</style>
+</head>
+<body><center>
+
+    <marquee><h1>Collect One!!! 📚🔖</h1></marquee>
+    <div class="product-card">
+    <div class="third"><img class="image" src="./third.jpg" height="400vh" alt=""><br><h3> Front</h3></div>&nbsp; &nbsp;&nbsp;&nbsp;
+    <div><img class="image" src="./backpage.jpg" height="400vh" alt=""><br> <h3>Back</h3></div>
+   
+  <div class="info">
+    <h2>Travel Journy!!</h2>
+    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis est iusto doloremque nihil dolor ipsa ea perferendis sint, laboriosam minima asperiores, veniam deserunt! Eveniet exercitationem incidunt blanditiis! Sequi, repellat corporis.</h4>
+  <div class="price">Price: &#8377; <span id="price">539</span></div> <br />
+  <div class="quantity">
+    <button class="input2" onclick="decrementQuantity()">-</button>
+    <input class="input  " id="quantityInput" type="number" value="1" min="1">
+    <button class="input3" onclick="incrementQuantity()">+</button> 
+    
+   
+    
+   
+  </div>
+  <button class="addtocart" onclick="updateTotal()">Add to Cart</button>
+  </div>
+  
+</div>
+
+<script>
+  let pricePerUnit = 539; 
+  function incrementQuantity() {
+    const quantityInput = document.getElementById('quantityInput');
+    quantityInput.value = parseInt(quantityInput.value) + 1;
+    updatePrice();
+  }
+
+  function decrementQuantity() {
+    const quantityInput = document.getElementById('quantityInput');
+    if (parseInt(quantityInput.value) > 1) {
+      quantityInput.value = parseInt(quantityInput.value) - 1;
+      updatePrice();
+    }
+  }
+
+  function updatePrice() {
+    const quantityInput = document.getElementById('quantityInput');
+    const priceElement = document.getElementById('price');
+    const totalPrice = parseInt(quantityInput.value) * pricePerUnit;
+    priceElement.textContent = totalPrice;
+  }
+
+  function updateTotal() {
+    const quantityInput = document.getElementById('quantityInput');
+    const totalPrice = parseInt(quantityInput.value) * pricePerUnit;
+    alert('Total Price: ₹' + totalPrice);
+  }
+</script>
+</center>
+</body>
+</html>

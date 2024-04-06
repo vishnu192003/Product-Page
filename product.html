@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Card with Quantity Increment Decrement</title>
+
+<style>
+    body{
+        background-color: rgb(238, 238, 238);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        margin: 0px;
+        padding: 0px;
+        margin-top: 2rem;       
+
+          }
+       
+ .product-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 300px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+  }
+  .product-info {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .quantity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 250px;
+    align-items: space-between;
+   
+  }
+  .book{
+    border-radius: 10px;
+  }
+  .input{
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    margin: 0;
+    margin-bottom: 1rem;
+    padding-left: 5rem;
+    
+   
+  }
+  .input2{    
+    
+    margin-left: 1px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    margin: 0;
+    padding:  10px ;
+    margin-bottom: 1rem ;
+  }
+</style>
+</head>
+<body><center>
+
+<div class="product-card">
+  <div class="product-info">
+    <img class="book" src="./third.jpg" height="400vh" alt="">
+  <b>
+    <p >Product Name: <span id="productName">Product 1</span></p>
+    <p >Price: $<span id="productPrice">10.00</span></p>
+  </b>
+  </div>
+  <div class="quantity">
+    <button class="input2 text-denger" onclick="decrement()">-</button>
+    <input class="input" type="text" id="quantity" value="0" readonly>
+    <button class="input2" onclick="increment()">+</button>
+  </div>
+</div>
+
+<script>
+  function increment() {
+    let quantityInput = document.getElementById('quantity');
+    let quantity = parseInt(quantityInput.value);
+    quantityInput.value = quantity + 1;
+  }
+
+  function decrement() {
+    let quantityInput = document.getElementById('quantity');
+    let quantity = parseInt(quantityInput.value);
+    if (quantity > 1) {
+      quantityInput.value = quantity - 1;
+    }
+  }
+</script>
+</center>
+</body>
+</html>
